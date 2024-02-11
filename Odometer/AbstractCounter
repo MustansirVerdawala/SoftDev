@@ -1,0 +1,20 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package coe528.lab3;
+
+/**
+ *
+ * @author mbverdaw
+ */
+public abstract class AbstractCounter implements Counter{
+    protected int value;
+    
+    public AbstractCounter(){
+        this.value=0;
+    }
+    
+    public abstract void increment();
+    public abstract void decrement();
+}
