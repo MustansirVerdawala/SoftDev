@@ -1,0 +1,126 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package bankaccountapplication;
+/**
+ *
+ * @author mbverdaw
+ */
+
+/**
+ * Represents a bank account with functionalities to deposit, withdraw, and get balance.
+ * This class is mutable as it allows changes to the balance through deposit and withdraw methods.
+ * 
+ * Abstraction Function:
+ * - Represents a bank account with a unique account number and a balance.
+ * 
+ * Rep Invariant:
+ * - Account number must be greater than zero.
+ * - Balance must be greater than or equal to zero.
+ * 
+ */
+
+public class BankAccount{
+    private int accNum;
+    private double balance;
+    
+    /**
+     * Retrieves the account number of the bank account.
+     * 
+     * @return The account number of the bank account.
+     * 
+     * Effects: None.
+     * Modifies: None.
+     * Requires: None.
+     */
+    
+    public int getAccNum(){
+        return this.accNum;
+    }
+    
+    /**
+     * Retrieves the balance of the bank account.
+     * 
+     * @return The balance of the bank account.
+     * 
+     * Effects: None.
+     * Modifies: None.
+     * Requires: None.
+     */
+    
+    public double getBalance(){
+        return this.balance;
+    }
+    
+    /**
+     * Constructs a new BankAccount object with the given account number and initializes the balance to zero.
+     * 
+     * @param bankAccNum The account number of the bank account.
+     * 
+     * Effects: Initializes a new BankAccount object with the given account number and zero balance.
+     * Modifies: This BankAccount object.
+     * Requires: accountNumber must be greater than zero.
+     */
+    
+    public BankAccount(int bankAccNum){
+        this.balance=100;
+        this.accNum=bankAccNum;
+    }
+    
+    /**
+     * Deposits the specified amount into the bank account.
+     * 
+     * @param amt The amount to be deposited.
+     * 
+     * Effects: Increases the balance of the bank account by the specified amount.
+     * Modifies: This BankAccount object.
+     * Requires: Amount must be greater than zero.
+     */
+    
+    public void deposit(double amt){
+        this.balance+=amt;
+    }
+    
+    /**
+     * Withdraws the specified amount from the bank account.
+     * 
+     * @param amt The amount to be withdrawn.
+     * 
+     * Effects: Decreases the balance of the bank account by the specified amount.
+     * Modifies: This BankAccount object.
+     * Requires: Amount must be greater than zero and less than or equal to the current balance.
+     */
+    
+    public void withdraw(double amt){
+        this.balance-=amt;
+    }
+    
+    /**
+     * Returns a string representation of the bank account.
+     * 
+     * @return A string representation including the account number and balance of the bank account.
+     * 
+     * Effects: None.
+     * Modifies: None.
+     * Requires: None.
+     */
+    @Override
+    public String toString() {
+        return "Bank Account Number: " + this.accNum + "\nBalance: $" + this.balance;
+    }
+
+    /**
+     * Checks if the representation invariant holds for this bank account.
+     * 
+     * @return True if the representation invariant holds, false otherwise.
+     * 
+     * Effects: None.
+     * Modifies: None.
+     * Requires: None.
+     */
+    private boolean repOk() {
+        return this.accNum > 0 && this.balance >= 0;
+    }
+    
+}
